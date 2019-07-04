@@ -1,0 +1,4 @@
+/vendor/
+composer.lock
+tests/test_app/database/data
+tests/test_app/vendor

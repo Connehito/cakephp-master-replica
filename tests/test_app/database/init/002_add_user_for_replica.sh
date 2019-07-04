@@ -1,0 +1,5 @@
+mysql -u root -p$MYSQL_ROOT_PASSWORD  -e "CREATE USER 'second_user'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}${MYSQL_PASSWORD}';"
+mysql -u root -p$MYSQL_ROOT_PASSWORD  -e "CREATE USER 'third_user'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}${MYSQL_PASSWORD}${MYSQL_PASSWORD}';"
+mysql -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT ALL PRIVILEGES ON *.* TO 'my_app';"
+mysql -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT SELECT,SUPER ON *.* TO 'second_user';"
+mysql -u root -p$MYSQL_ROOT_PASSWORD -e "GRANT SELECT,SUPER ON *.* TO 'third_user';"

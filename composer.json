@@ -1,0 +1,34 @@
+{
+    "name": "connehito/cakephp-master-replica",
+    "description": "Provides the features for multiple database connections as master/replica and switching.",
+    "type": "cakephp-plugin",
+    "require": {
+        "php": ">=7.0.0",
+        "cakephp/database": "^3.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7.14|^6.0",
+        "cakephp/cakephp": "^3.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hideki Kinjyo",
+            "email": "dev@o0h.in"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Connehito\\CakephpMasterReplica\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Connehito\\CakephpMasterReplica\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs-check": "phpcs --colors -p ./src"
+    }
+}

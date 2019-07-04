@@ -1,0 +1,27 @@
+{
+    "name": "connehito/cakephp-master-replica-test-app",
+    "description": "This is test-app for plugin.",
+    "type": "project",
+    "repositories": [
+    {
+        "type": "path",
+        "url": "/dist"
+    }
+    ],
+    "require": {
+        "cakephp/cakephp": "^3.5",
+        "connehito/cakephp-master-replica": "@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "phpstan/phpstan": "^0.11.9",
+        "squizlabs/php_codesniffer": "^3.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hideki Kinjyo",
+            "email": "dev@o0h.in"
+        }
+    ]
+}

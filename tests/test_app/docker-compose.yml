@@ -1,0 +1,25 @@
+version: '3'
+services:
+  test-app:
+    volumes:
+      - ../../src:/dist/src
+      - ../../composer.json:/dist/composer.json
+      - ../..:/app
+    container_name: cakephp-master-replica-test-app
+    depends_on:
+      - database
+    build:
+      context: ../..
+      dockerfile: ./tests/test_app/Dockerfile
+    environment:
+      - PHP_IDE_CONFIG=serverName=cakephp-master-replica-test-app
+  database:
+    image: mysql:5
+    container_name: cakephp-master-replica-test-app-db
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: my_app
+      MYSQL_PASSWORD: secret
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d
