@@ -30,6 +30,8 @@
     },
     "scripts": {
         "test": "phpunit",
-        "cs-check": "phpcs --colors -p ./src ./tests/TestCase"
+        "cs-check": "phpcs --colors -p ./src ./tests/TestCase",
+        "phpstan": "phpstan.phar analyse src/ tests/TestCase",
+        "stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan-shim:^0.11 && mv composer.backup composer.json"
     }
 }

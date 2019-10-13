@@ -16,7 +16,9 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
      */
     public function tearDown()
     {
-        ConnectionManager::get('test')->switchRole('master');
+        $connection = ConnectionManager::get('test');
+        assert($connection instanceof MasterReplicaConnection);
+        $connection->switchRole('master');
 
         parent::tearDown();
     }
@@ -65,6 +67,7 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
         $query->execute();
 
         $connection = $table->getConnection();
+        assert($connection instanceof MasterReplicaConnection);
         // Secondary user is not writable, so PDO throws the exception.
         $connection->switchRole('secondary');
         $this->expectExceptionMessageRegExp(
