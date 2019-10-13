@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Connehito\CakephpMasterReplica\Test\TestCase\Database\Connection;
 
 use Cake\Database\Connection;
@@ -13,10 +15,14 @@ use ReflectionProperty;
 
 class MasterReplicaConnectionTest extends TestCase
 {
-    /** @var MasterReplicaConnection */
+    /**
+     * @var MasterReplicaConnection
+     */
     private $subject;
 
-    /** @var array Connection configuration */
+    /**
+     * @var array Connection configuration
+     */
     private $config = [
         'driver' => Mysql::class,
         'host' => 'example.com',
@@ -26,7 +32,7 @@ class MasterReplicaConnectionTest extends TestCase
         'roles' => [
             'master' => ['password' => 'password_for_master'],
             'replica' => null,
-        ]
+        ],
     ];
 
     /**

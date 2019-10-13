@@ -2,3 +2,4 @@
 composer.lock
 tests/test_app/database/data
 tests/test_app/vendor
+.php_cs.cache

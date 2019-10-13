@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Connehito\CakephpMasterReplica\Test\TestCase;
 
 use Cake\Auth\WeakPasswordHasher;
@@ -51,11 +53,13 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
         $table = $this->getTableLocator()->get('Users');
         $query = $table->query()
             ->insert(['name', 'email', 'password'])
-            ->values([
-                'name' => 'Taro Suzuki',
-                'email' => 'mail@example.com',
-                'password' => (new WeakPasswordHasher)->hash('secret')
-            ]);
+            ->values(
+                [
+                    'name' => 'Taro Suzuki',
+                    'email' => 'mail@example.com',
+                    'password' => (new WeakPasswordHasher())->hash('secret'),
+                ]
+            );
 
         // Default user(master) is writable.
         $query->execute();

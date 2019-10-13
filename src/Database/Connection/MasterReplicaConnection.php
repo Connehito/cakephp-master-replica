@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Connehito\CakephpMasterReplica\Database\Connection;
 
 use Cake\Database\Connection;
@@ -10,10 +12,14 @@ use Cake\Database\DriverInterface;
  */
 class MasterReplicaConnection extends Connection
 {
-    /** @var string Current role name */
+    /**
+     * @var string Current role name
+     */
     protected $role = 'master';
 
-    /** @var  DriverInterface[] Driver instances */
+    /**
+     * @var \Cake\Database\DriverInterface[] Driver instances
+     */
     protected $drivers = [];
 
     /**
@@ -46,7 +52,7 @@ class MasterReplicaConnection extends Connection
      * @param string $role master or replica
      * @return $this
      */
-    public function switchRole($role)
+    public function switchRole($role) : self
     {
         $this->role = $role;
         $driver = $this->getDriver();
@@ -58,9 +64,9 @@ class MasterReplicaConnection extends Connection
     /**
      * Get current role's driver
      *
-     * @return DriverInterface Current role's driver
+     * @return \Cake\Database\DriverInterface Current role's driver
      */
-    public function getDriver()
+    public function getDriver(): DriverInterface
     {
         return $this->drivers[$this->role];
     }
