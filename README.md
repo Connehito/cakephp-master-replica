@@ -11,7 +11,7 @@ The datasource for CakePHP.This plugin enables one-connection to act as two(or m
 ## Supports
 
 - PHP 7.1+
-- CakePHP 3.5+
+- CakePHP 3.6+
 
 ## Usage
 
