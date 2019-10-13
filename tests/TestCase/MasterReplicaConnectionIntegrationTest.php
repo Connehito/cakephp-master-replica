@@ -8,6 +8,7 @@ use Cake\Auth\WeakPasswordHasher;
 use Cake\Datasource\ConnectionManager;
 use Cake\TestSuite\TestCase;
 use Connehito\CakephpMasterReplica\Database\Connection\MasterReplicaConnection;
+use PDOException;
 
 class MasterReplicaConnectionIntegrationTest extends TestCase
 {
@@ -70,6 +71,7 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
         assert($connection instanceof MasterReplicaConnection);
         // Secondary user is not writable, so PDO throws the exception.
         $connection->switchRole('secondary');
+        $this->expectException(PDOException::class);
         $this->expectExceptionMessageRegExp(
             "/INSERT command denied to user '(.*?)'@'(.*?)' for table 'users'/"
         );
