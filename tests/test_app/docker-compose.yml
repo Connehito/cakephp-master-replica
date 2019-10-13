@@ -13,6 +13,7 @@ services:
       dockerfile: ./tests/test_app/Dockerfile
     environment:
       - PHP_IDE_CONFIG=serverName=cakephp-master-replica-test-app
+      - DB_HOST=cakephp-master-replica-test-app-db
   database:
     image: mysql:5
     container_name: cakephp-master-replica-test-app-db

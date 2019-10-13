@@ -35,7 +35,7 @@ ConnectionManager::setConfig([
     'test' => [
         'driver' => Mysql::class,
         'className' => MasterReplicaConnection::class,
-        'host' => 'cakephp-master-replica-test-app-db',
+        'host' => env('DB_HOST'),
         'database' => 'test',
         'roles' => [
             'master' => ['username' => 'my_app', 'password' => 'secret'],
