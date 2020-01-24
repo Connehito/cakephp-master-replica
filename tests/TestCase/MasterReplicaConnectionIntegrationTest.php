@@ -15,7 +15,7 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
     /**
      * {@inheritDoc}}
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         $connection = ConnectionManager::get('test');
         assert($connection instanceof MasterReplicaConnection);
