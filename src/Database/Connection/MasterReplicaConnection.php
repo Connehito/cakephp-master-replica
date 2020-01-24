@@ -6,6 +6,7 @@ namespace Connehito\CakephpMasterReplica\Database\Connection;
 
 use Cake\Database\Connection;
 use Cake\Database\Driver;
+use Cake\Database\DriverInterface;
 
 /**
  * Connection for handling multi connection(driver) to database.
@@ -64,9 +65,9 @@ class MasterReplicaConnection extends Connection
     /**
      * Get current role's driver
      *
-     * @return \Cake\Database\Driver Current role's driver
+     * @return \Cake\Database\DriverInterface Current role's driver
      */
-    public function getDriver(): Driver
+    public function getDriver(): DriverInterface
     {
         return $this->drivers[$this->role];
     }
