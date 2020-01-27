@@ -3,13 +3,13 @@
     "description": "Provides the features for multiple database connections as master/replica and switching.",
     "type": "cakephp-plugin",
     "require": {
-        "php": ">=7.0.0",
-        "cakephp/database": "^3.6"
+        "php": ">=7.2",
+        "cakephp/database": "^4.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7.14|^6.0",
-        "cakephp/cakephp": "^3.6",
-        "cakephp/cakephp-codesniffer": "^3.0|^4.0@beta"
+        "phpunit/phpunit": "^8.5",
+        "cakephp/cakephp": "^4.0",
+        "cakephp/cakephp-codesniffer": "~4.0.0"
     },
     "license": "MIT",
     "authors": [
@@ -32,6 +32,6 @@
         "test": "phpunit",
         "cs-check": "phpcs --colors -p ./src ./tests/TestCase",
         "stan": "phpstan.phar analyse src/ tests/TestCase",
-        "stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan-shim:^0.11 && mv composer.backup composer.json"
+        "stan-setup": "cp composer.json composer.backup && composer require --dev phpstan/phpstan:^0.12 && mv composer.backup composer.json"
     }
 }
