@@ -67,7 +67,7 @@ final class MasterReplicaConnectionIntegrationTest extends TestCase
         // Secondary user is not writable, so PDO throws the exception.
         $connection->switchRole('secondary');
         $this->expectException(PDOException::class);
-        $this->expectExceptionMessageRegExp(
+        $this->expectExceptionMessageMatches(
             "/INSERT command denied to user '(.*?)'@'(.*?)' for table 'users'/"
         );
         $query->cleanCopy()->execute();
