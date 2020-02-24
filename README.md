@@ -1,4 +1,4 @@
-# CakePHP Master Replica Plugin
+# CakePHP Master Replica Plugin for CakePHP3.x
 
 The datasource for CakePHP.This plugin enables one-connection to act as two(or more) roles, like master(read-write) and replica(read-only).
 
