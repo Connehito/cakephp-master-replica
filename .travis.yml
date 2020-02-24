@@ -5,7 +5,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - 7.4snapshot
+  - 7.4
 
 env:
   matrix:
@@ -13,14 +13,8 @@ env:
 
 matrix:
   include:
-    - php: 7.3
+    - php: 7.4
       env: PREFER_LOWEST=""
-    - php: 7.4snapshot
-      env: PREFER_LOWEST=""
-
-allow_failures:
-  - php: '7.4snapshot'
-
 
 services:
   - mysql
@@ -47,7 +41,7 @@ before_script:
 
 script:
   - |
-      if [[ $TRAVIS_PHP_VERSION == '7.3' ]]; then
+      if [[ $TRAVIS_PHP_VERSION == '7.4' ]]; then
         vendor/bin/phpunit --verbose --coverage-clover=clover.xml
         composer stan-setup
         composer stan
@@ -58,7 +52,7 @@ script:
 after_success:
   - |
       # obrained from https://github.com/codecov/codecov-bash/issues/133#issuecomment-447337868
-      if [[ $TRAVIS_PHP_VERSION == '7.3' ]]; then
+      if [[ $TRAVIS_PHP_VERSION == '7.4' ]]; then
         curl -s https://codecov.io/bash > codecov
         sed -i -e 's/TRAVIS_.*_VERSION/^TRAVIS_.*_VERSION=/' codecov
         bash codecov
