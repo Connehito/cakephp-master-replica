@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Connehito\CakephpMasterReplica\Test\TestCase\Database\Connection;
@@ -13,7 +12,7 @@ use Cake\Utility\Hash;
 use Connehito\CakephpMasterReplica\Database\Connection\MasterReplicaConnection;
 use ReflectionProperty;
 
-class MasterReplicaConnectionTest extends TestCase
+final class MasterReplicaConnectionTest extends TestCase
 {
     /**
      * @var MasterReplicaConnection
@@ -36,7 +35,7 @@ class MasterReplicaConnectionTest extends TestCase
     ];
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
     public function setUp(): void
     {
@@ -47,10 +46,8 @@ class MasterReplicaConnectionTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
-    public function constructToSetDrivers()
+    public function constructToSetDrivers(): void
     {
         $getDriverConfig = function (DriverInterface $driver) {
             $configProperty = new ReflectionProperty($driver, '_config');
@@ -98,10 +95,8 @@ class MasterReplicaConnectionTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
-    public function constructToSetDefaultRole()
+    public function constructToSetDefaultRole(): void
     {
         $driversProperty = new ReflectionProperty($this->subject, 'drivers');
         $driversProperty->setAccessible(true);
@@ -120,10 +115,8 @@ class MasterReplicaConnectionTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
-    public function switchRole()
+    public function switchRole(): void
     {
         $roleProperty = new ReflectionProperty($this->subject, 'role');
         $roleProperty->setAccessible(true);
@@ -159,9 +152,8 @@ class MasterReplicaConnectionTest extends TestCase
      * @test
      *
      * @depends switchRole
-     * @return  void
      */
-    public function getDriver()
+    public function getDriver(): void
     {
         $driversProperty = new ReflectionProperty($this->subject, 'drivers');
         $driversProperty->setAccessible(true);

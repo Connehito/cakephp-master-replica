@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Connehito\CakephpMasterReplica\Test\TestCase;
@@ -10,10 +9,10 @@ use Cake\TestSuite\TestCase;
 use Connehito\CakephpMasterReplica\Database\Connection\MasterReplicaConnection;
 use PDOException;
 
-class MasterReplicaConnectionIntegrationTest extends TestCase
+final class MasterReplicaConnectionIntegrationTest extends TestCase
 {
     /**
-     * {@inheritDoc}}
+     * @inheritDoc
      */
     public function tearDown(): void
     {
@@ -26,10 +25,8 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
-    public function switchRoleThenChangingSession()
+    public function switchRoleThenChangingSession(): void
     {
         $subject = ConnectionManager::get('test');
         assert($subject instanceof MasterReplicaConnection);
@@ -48,10 +45,8 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
 
     /**
      * @test
-     *
-     * @return void
      */
-    public function switchToReadOnlyUserThenNotWritable()
+    public function switchToReadOnlyUserThenNotWritable(): void
     {
         $table = $this->getTableLocator()->get('Users');
         $query = $table->query()
@@ -72,7 +67,7 @@ class MasterReplicaConnectionIntegrationTest extends TestCase
         // Secondary user is not writable, so PDO throws the exception.
         $connection->switchRole('secondary');
         $this->expectException(PDOException::class);
-        $this->expectExceptionMessageRegExp(
+        $this->expectExceptionMessageMatches(
             "/INSERT command denied to user '(.*?)'@'(.*?)' for table 'users'/"
         );
         $query->cleanCopy()->execute();
