@@ -1,11 +1,9 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Connehito\CakephpMasterReplica\Database\Connection;
 
 use Cake\Database\Connection;
-use Cake\Database\Driver;
 use Cake\Database\DriverInterface;
 
 /**
@@ -53,7 +51,7 @@ class MasterReplicaConnection extends Connection
      * @param string $role master or replica
      * @return $this
      */
-    public function switchRole(string $role): self
+    public function switchRole(string $role)
     {
         $this->role = $role;
         $driver = $this->getDriver();
