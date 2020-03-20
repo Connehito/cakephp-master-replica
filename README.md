@@ -10,8 +10,10 @@ The datasource for CakePHP.This plugin enables one-connection to act as two(or m
 
 ## Supports
 
-- PHP 7.1+
-- CakePHP 3.6+
+- PHP 7.2+
+- CakePHP 4.0+
+
+:bulb: For CakePHP3.x, use `1.x` branch.
 
 ## Usage
 
