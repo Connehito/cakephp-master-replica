@@ -50,7 +50,7 @@ In app, now you can connect to database master or replica db as you like :tada:
 
 ```php
 // as default, connect with `master` role.
-$usersTable->save($usersTable->newEnitty(['name' => 'hoge']));
+$usersTable->save($usersTable->newEntity(['name' => 'hoge']));
 
 // switch to `replica` role
 \Cake\Datasource\ConnectionManager::get('default')->switchRole('secondary');
