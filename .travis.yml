@@ -4,6 +4,7 @@ php:
   - 7.2
   - 7.3
   - 7.4
+  - 8.0
 
 env:
   matrix:
@@ -11,7 +12,7 @@ env:
 
 matrix:
   include:
-    - php: 7.4
+    - php: 8.0
       env: PREFER_LOWEST=""
 
 
@@ -40,7 +41,7 @@ before_script:
 
 script:
   - |
-      if [[ $TRAVIS_PHP_VERSION == '7.4' ]]; then
+      if [[ $TRAVIS_PHP_VERSION == '8.0' ]]; then
         vendor/bin/phpunit --verbose --coverage-clover=clover.xml
         composer stan-setup
         composer stan
@@ -51,7 +52,7 @@ script:
 after_success:
   - |
       # obrained from https://github.com/codecov/codecov-bash/issues/133#issuecomment-447337868
-      if [[ $TRAVIS_PHP_VERSION == '7.4' ]]; then
+      if [[ $TRAVIS_PHP_VERSION == '8.0' ]]; then
         curl -s https://codecov.io/bash > codecov
         sed -i -e 's/TRAVIS_.*_VERSION/^TRAVIS_.*_VERSION=/' codecov
         bash codecov
