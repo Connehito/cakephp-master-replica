@@ -2,7 +2,7 @@
 
 The datasource for CakePHP.This plugin enables one-connection to act as two(or more) roles, like master(read-write) and replica(read-only).
 
-[![Build Status](https://travis-ci.org/Connehito/cakephp-master-replica.svg?branch=master)](https://travis-ci.org/Connehito/cakephp-master-replica)
+[![Build Status](https://travis-ci.com/Connehito/cakephp-master-replica.svg?branch=master)](https://travis-ci.com/Connehito/cakephp-master-replica)
 [![codecov](https://codecov.io/gh/Connehito/cakephp-master-replica/branch/master/graph/badge.svg)](https://codecov.io/gh/Connehito/cakephp-master-replica)
 [![Latest Stable Version](https://poser.pugx.org/connehito/cakephp-master-replica/v/stable)](https://packagist.org/packages/Connehito/cakephp-master-replica)
 [![Total Downloads](https://poser.pugx.org/connehito/cakephp-master-replica/downloads)](https://packagist.org/packages/Connehito/cakephp-master-replica)
