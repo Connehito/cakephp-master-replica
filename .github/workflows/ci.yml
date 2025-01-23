@@ -3,7 +3,7 @@ name: Run PHPUnit
 on:
   push:
     branches:
-      - master
+      - setup-github-actions
   pull_request:
     branches:
       - master
