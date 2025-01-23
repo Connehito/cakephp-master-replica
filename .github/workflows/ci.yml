@@ -1,0 +1,50 @@
+name: Run PHPUnit
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: app_db
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring, intl, pdo_mysql
+          ini-values: post_max_size=256M, upload_max_filesize=256M, memory_limit=2G
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Create database
+        run: |
+          mysql -u root -ppassword -e "CREATE DATABASE IF NOT EXISTS app_db;"
+          mysql -u root -ppassword app_db < tests/test_app/schema.sql
+
+      - name: Run PHPUnit
+        run: vendor/bin/phpunit
