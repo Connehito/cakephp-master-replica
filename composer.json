@@ -2,6 +2,11 @@
     "name": "connehito/cakephp-master-replica",
     "description": "Provides the features for multiple database connections as master/replica and switching.",
     "type": "cakephp-plugin",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
     "require": {
         "php": ">=7.2",
         "cakephp/database": "^4.0"
