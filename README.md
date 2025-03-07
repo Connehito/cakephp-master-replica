@@ -1,7 +1,16 @@
-# CakePHP Master Replica Plugin
+# [Archived] CakePHP Master Replica Plugin
+
+Use CakePHP native features introduced from [4.5](https://book.cakephp.org/4/en/appendices/4-5-migration-guide.html#database) if you want to switch Database roles.
+
+This project has been archived and is no longer actively maintained because several years have passed without active maintenance.
+
+We appreciate the support and contributions from the community over the years. While this repository will remain available in read-only mode, there will be no further updates or maintenance. Thank you for your understanding and support.
+
+-----
 
 The datasource for CakePHP.This plugin enables one-connection to act as two(or more) roles, like master(read-write) and replica(read-only).
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![Build Status](https://travis-ci.com/Connehito/cakephp-master-replica.svg?branch=master)](https://travis-ci.com/Connehito/cakephp-master-replica)
 [![codecov](https://codecov.io/gh/Connehito/cakephp-master-replica/branch/master/graph/badge.svg)](https://codecov.io/gh/Connehito/cakephp-master-replica)
 [![Latest Stable Version](https://poser.pugx.org/connehito/cakephp-master-replica/v/stable)](https://packagist.org/packages/Connehito/cakephp-master-replica)
